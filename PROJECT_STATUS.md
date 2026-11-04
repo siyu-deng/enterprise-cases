@@ -1,8 +1,8 @@
 # 企业 AI 落地观察 项目现状
 
-- 更新：2026-11-04，Asia/Shanghai；本轮二次开发交接进行中；服务器只读复核 Web/timer active、90 条、5 分钟、无 inFlight/错误。
+- 更新：2026-11-04，Asia/Shanghai；二次开发交接已验证/上传；服务器只读复核 Web/timer active、90 条、5 分钟、无 inFlight/错误。
 - 项目 /Users/siyudeng/side-projects/enterprise-cases；同目录 worktree。
-- 工作分支 feature/enterprise-cases，首次 Git 提交/私有 GitHub 交接进行中；未提交文件均属本项目。
+- 工作分支 feature/enterprise-cases；私有 GitHub https://github.com/siyu-deng/enterprise-cases ，默认 main；首次代码基线 3917f24，后续交接记录见 Git 历史。
 - 版本 0.2.0；服务器发布 20261103065654Z；公开入口 https://flow.ciyufish.cn 。
 
 ## 目标与已确认范围
@@ -20,13 +20,13 @@
 | 事项 | 状态 | 证据/边界 |
 | --- | --- | --- |
 | 产品/设计系统 | 已实现、已验证 | docs/product.md、docs/design-system.md；/design-system |
-| 概要与来源适配 | 已验证 | 90 条：34 企业案例/56 场景参考，2 来源/14 实际行业；13 个回归全通过 |
+| 概要与来源适配 | 已验证 | 90 条：34 企业案例/56 场景参考，2 来源/14 实际行业；当前 15 个回归全通过 |
 | 页面筛选/概要/原文 | 已验证 | 类型/行业/搜索/排序、12→24、弹窗关闭保留筛选；docs/acceptance.md |
 | 生产网页 | 已部署、工程验证 | /、/customers、/api/catalog、配图 HTTPS 200，API no-store、90 条 |
 | 生产交互 | 已验证（限定范围） | Playwright 1440/390，无溢出，搜索/筛选/概要/更多正常，控制台错误 0 |
 | 采集/企微 | 已迁移、真实投递已验证 | timer 触发 sent/newCount=1，下一轮 unchanged；见 docs/deployment/semir-case-2026-11-03.md |
 | 唯一调度器 | 已切换 | 服务器 timer active/enabled；旧 Codex 定时任务已删除，本地 enabled=false |
-| 二次开发交接 | 进行中 | docs/handoff/README.md、macos-setup.md、architecture.md；Node/pnpm 固定、本地隔离检查、PR/CI 已写，待全新副本与远端验证 |
+| 二次开发交接 | 已验证、已上传 | docs/handoff/README.md；Mac 隔离副本安装/初始化/检查/构建/预览通过，远端克隆与 Linux CI 通过；同事电脑/权限待接入 |
 | HTTPS 续期 | 已配置、已验证 | flow 独立账户/目录/timer；实际 certbot dry-run 成功，证书至 2027-02-01 |
 | 其他项目保护 | 已复核 | 原 Nginx 文件哈希/8 个服务 MainPID/active 不变，六站点响应基线一致 |
 | 业务/真实新增效果 | 业务待验收/接口确认已验证 | 真实 timer 与新增接口确认已验证；未核验群成员已读/经营成效，不把工程检查当业务验收 |
@@ -57,7 +57,7 @@
 ## 版本与工程证据
 
 - 新增 Linux standalone 打包、依赖链接完整性校验、低内存 webpack 构建和独立服务/证书模板。
-- 13 回归：3 概要、5 通知、5 路径/初始化（含 current 链接实际 CLI）；Lint、类型、Linux 构建通过。
+- 原 13 回归（概要/通知/路径）加 2 个本地隔离检查共 15，通过 Node 22.14.0；Lint、类型、全新 Mac 构建/预览与 GitHub Linux CI 通过，见 docs/handoff/verification-2026-11-04.md。
 - 生产 Chrome/IAB CUA 连接超时，公开无登录页改用独立 Playwright；截图 docs/deployment/flow-desktop.png。
 - 只做本次基础响应观察，单次公网 HEAD 首字节约 0.24s；未做压力测试、完整 Web Vitals、真实手机软键盘或业务高峰验证。
 - Creator app/MongoDB 已正常退出 0、专属备份 timer disabled，数据保留；恢复方式见 docs/deployment/server-audit-2026-11-03.md。
@@ -66,6 +66,6 @@
 
 ## 下一步
 
-1. 完成本轮交接：全新副本按 Mac 手册安装/检查/构建，排除凭据与私有状态，提交并推送 GitHub 私有仓库，核对远端 CI。
-2. 同事提供 GitHub 用户名后由仓库主人邀请；首次完成本地预览→功能分支→PR，代码审核和服务器发布分别执行。
+1. 仓库主人邀请同事 GitHub 账号；同事按 docs/handoff/macos-setup.md 配置自己的 Mac，并完成本地预览→功能分支→PR。
+2. 后续需求先写任务/范围/验收；CI 只检查，不自动发布，代码审核、生产内容导入与服务器更新分别执行。本轮未改生产服务或发送消息。
 3. 后续自有资料入库先约定来源/分类/概要核验与发布规则，再实现审核后台或适配；不自行扩大采集/推送，旧证书问题另项处理。

@@ -2,6 +2,8 @@
 
 交接日期：2026-11-04，Asia/Shanghai。适用：使用 macOS 的业务同事，借助 Codex、Cursor 或其他能读取本地项目的 AI 编程工具继续开发。
 
+本轮 [交接验证记录](verification-2026-11-04.md)：隔离副本安装/启动/构建、15 项测试及 GitHub Linux CI 已通过。同事自己的电脑和账号仍需按手册接入。
+
 ## 1. 先了解交付了什么
 
 线上：[企业 AI 落地观察](https://flow.ciyufish.cn/)。源码：[GitHub 私有仓库](https://github.com/siyu-deng/enterprise-cases)。仓库主人需先邀请同事为协作者；同事使用自己的 GitHub 和 AI 工具账号。
