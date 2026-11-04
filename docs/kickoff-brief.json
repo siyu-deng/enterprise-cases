@@ -1,0 +1,93 @@
+{
+  "name": "企业案例落地页",
+  "goal": "使用 Next.js 复刻 FastGPT 客户案例页，交付本地可浏览版本，为后续业务案例替换保留数据边界",
+  "audience": "了解企业 AI 落地场景的业务访客",
+  "stage": "prototype",
+  "scope": [
+    "参考页面视觉与交互复刻",
+    "静态案例数据与本地媒体",
+    "本地可浏览验收"
+  ],
+  "constraints": [
+    "pnpm + Next.js App Router + TypeScript",
+    "不部署、不接真实线索系统",
+    "真实企业案例由用户后续整理入库"
+  ],
+  "assumptions": [
+    "首版保留参考品牌与参考数据，用于核对复刻效果"
+  ],
+  "snapshot": "新仓库 feature/enterprise-cases，尚无提交",
+  "sources": {
+    "product": "docs/product.md",
+    "design": "docs/design-system.md",
+    "frontend": "src/app",
+    "api": "src/data/catalog.ts"
+  },
+  "groups": [
+    {
+      "id": "page-prototype",
+      "roles": [
+        "coordinator",
+        "business",
+        "market",
+        "product",
+        "design",
+        "frontend",
+        "qa"
+      ],
+      "status": "ready",
+      "reason": "本期单页复刻合并职责，由当前对话顺序实现与验证，无须新开对话",
+      "first_task": "建立参考页设计系统、案例数据类型与同布局页面，验证筛选、搜索、排序与浏览闭环",
+      "write_scope": [
+        "src/",
+        "public/reference/",
+        "scripts/",
+        "docs/",
+        "PROJECT_STATUS.md",
+        "项目配置"
+      ],
+      "acceptance": [
+        "复用参考布局与图片，案例可过滤、排序、查看更多",
+        "类型检查、Lint、构建通过，Chrome 核对主要交互",
+        "明确参考数据、未接 AI 匹配与未真实发送"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "case-backend",
+      "roles": [
+        "backend"
+      ],
+      "status": "deferred",
+      "reason": "真实案例待用户整理入库，本期无后台实现",
+      "first_task": "后续根据已确认案例库约定读取接口与发布状态",
+      "write_scope": [
+        "后续另行约定的案例服务模块"
+      ],
+      "acceptance": [
+        "先确认案例 schema、数据来源和发布权限"
+      ],
+      "depends_on": [
+        "page-prototype"
+      ]
+    },
+    {
+      "id": "deployment",
+      "roles": [
+        "release"
+      ],
+      "status": "deferred",
+      "reason": "本期只本地预览，未获得生产发布授权",
+      "first_task": "后续收到部署目标与授权后准备发布和回滚",
+      "write_scope": [
+        "后续另行约定的部署配置"
+      ],
+      "acceptance": [
+        "目标、版本、授权与真实入口可核查"
+      ],
+      "depends_on": [
+        "page-prototype"
+      ]
+    }
+  ]
+}

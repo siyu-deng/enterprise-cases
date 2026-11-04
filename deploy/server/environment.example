@@ -1,0 +1,11 @@
+# Copy to /etc/enterprise-cases.env after selecting the server.
+# PATH must include the installed pnpm, node and wecom-cli executables for the service user.
+PATH=/opt/enterprise-cases/runtime/bin:/opt/enterprise-cases/runtime/pnpm/bin:/var/lib/enterprise-cases/cli/node_modules/.bin:/usr/local/bin:/usr/bin:/bin
+NODE_ENV=production
+HOSTNAME=127.0.0.1
+PORT=12091
+NEXT_TELEMETRY_DISABLED=1
+ENTERPRISE_CASES_CATALOG_PATH=/var/lib/enterprise-cases/catalog.json
+ENTERPRISE_CASES_STATE_DIR=/var/lib/enterprise-cases/state
+ENTERPRISE_CASES_COVERS_DIR=/var/lib/enterprise-cases/covers
+ENTERPRISE_CASES_MANIFEST_PATH=/var/lib/enterprise-cases/asset-manifest.json

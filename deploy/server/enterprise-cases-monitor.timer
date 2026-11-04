@@ -1,0 +1,11 @@
+[Unit]
+Description=Check for new AI briefs every 5 minutes
+
+[Timer]
+OnCalendar=*-*-* *:00,05,10,15,20,25,30,35,40,45,50,55:00
+AccuracySec=1s
+Persistent=true
+Unit=enterprise-cases-monitor.service
+
+[Install]
+WantedBy=timers.target

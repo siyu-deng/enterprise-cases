@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+*.tsbuildinfo
+.DS_Store
+.local/
+next-env.d.ts
+coverage/
+*.log
+*.tar.gz
+*.zip
+*.pem
+*.key
+.vscode/
+.idea/

@@ -1,0 +1,10 @@
+[Unit]
+Description=Resource budget for Enterprise AI briefs
+
+[Slice]
+MemoryHigh=512M
+MemoryMax=640M
+MemorySwapMax=0
+CPUQuota=90%
+CPUWeight=20
+IOWeight=20

@@ -1,0 +1,48 @@
+{
+  "name": "enterprise-cases",
+  "version": "0.2.0",
+  "private": true,
+  "packageManager": "pnpm@10.19.0",
+  "engines": {
+    "node": ">=22.14.0 <23",
+    "pnpm": "10.19.0"
+  },
+  "scripts": {
+    "doctor": "node scripts/check-environment.mjs",
+    "setup:local": "pnpm run doctor && pnpm deploy:prepare",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "test": "node --test scripts/*.test.mjs",
+    "dev": "next dev --hostname 127.0.0.1 --port 12091",
+    "build": "next build",
+    "build:server": "next build --webpack",
+    "start": "next start --hostname 127.0.0.1 --port 12091",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:catalog": "node --test scripts/catalog-format.test.mjs",
+    "test:notifications": "node --test scripts/notification-core.test.mjs",
+    "notify:init": "node scripts/notify-new-data.mjs --init",
+    "notify:preview": "node scripts/notify-new-data.mjs",
+    "notify:send": "node scripts/notify-new-data.mjs --send",
+    "monitor:once": "node scripts/monitor-once.mjs",
+    "monitor:service": "node scripts/monitor-once.mjs --service",
+    "deploy:prepare": "node scripts/prepare-runtime.mjs",
+    "deploy:check": "node scripts/deployment-check.mjs",
+    "test:runtime": "node --test scripts/runtime-paths.test.mjs",
+    "import:reference": "node scripts/import-reference.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.4",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.3.1",
+    "lucide-react": "^1.66.0",
+    "next": "16.4.4",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  }
+}

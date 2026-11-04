@@ -1,0 +1,5 @@
+# Web-only hybrid profile. A separately deployed persistent worker supplies this API.
+# Do not set this until a real HTTPS worker endpoint has been authorized and verified.
+ENTERPRISE_CASES_CATALOG_URL=https://data.example.com/api/catalog
+# Optional server-side bearer token; set as a Vercel secret, never NEXT_PUBLIC_*.
+# ENTERPRISE_CASES_CATALOG_TOKEN=

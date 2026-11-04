@@ -1,0 +1,15 @@
+[Unit]
+Description=Renew only the Enterprise AI briefs TLS certificate
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/certbot renew --config /dev/null --config-dir /etc/enterprise-cases/acme --work-dir /var/lib/enterprise-cases-acme --logs-dir /var/log/enterprise-cases-acme --quiet --deploy-hook "/usr/local/lib/enterprise-cases/reload-nginx"
+TimeoutStartSec=300
+UMask=0077
+Nice=15
+CPUQuota=20%
+MemoryMax=192M
+PrivateTmp=true
+NoNewPrivileges=true

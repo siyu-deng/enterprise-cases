@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 2,
+  "sources": [
+    {
+      "id": "douyin-guangyu",
+      "name": "光羽的平行世界 · 抖音",
+      "url": "https://www.douyin.com/video/7642252037626907958",
+      "description": "企业走访视频；经营数字为受访者自述，未独立核验。",
+      "collectedAt": "2026-11-03T07:27:48.218Z"
+    }
+  ],
+  "categories": [],
+  "items": [
+    {
+      "id": "douyin-semir-ai-transformation",
+      "slug": "semir-ecommerce-ai-transformation",
+      "title": "森马电商：AI 融入直播、商品图与客服流程",
+      "summary": "森马电商将数字人直播、商品图生成、设计迭代、批量营销话术及客服 RPA 接入日常流程，并保留人工审核与跨部门协作。经营效果数字来自采访自述，未独立核验。",
+      "kind": "case",
+      "organization": "森马电商 / 巴拉巴拉",
+      "categorySlug": "e-commerce-retail-trade",
+      "sourceId": "douyin-guangyu",
+      "sourceUrl": "https://www.douyin.com/video/7642252037626907958",
+      "cover": "/reference/covers/semir-ecommerce-ai-transformation.jpg",
+      "collectedAt": "2026-11-03T07:27:48.218Z"
+    }
+  ]
+}
