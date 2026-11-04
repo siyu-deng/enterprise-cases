@@ -4,7 +4,7 @@
 
 ## 本轮交付
 
-私有仓库 `siyu-deng/enterprise-cases`，默认 `main`；包括现有网页、采集/通知脚本、公开概要与配图、部署模板和本轮 macOS/AI 开发手册。未配置生产 Secrets 或自动部署。PR 模板与自动检查已接入；未设置强制分支保护，需维护者按团队权限/套餐另行决定。
+初次交接为私有仓库 `siyu-deng/enterprise-cases`，同日随后按用户要求改为公开，默认 `main`；包括现有网页、采集/通知脚本、公开概要与配图、部署模板和 macOS/AI 开发手册。未配置生产 Secrets 或自动部署。PR 模板与自动检查已接入；未设置强制分支保护，需维护者按团队权限/套餐另行决定。
 
 新增 `.nvmrc` / `.node-version` 固定 Node 22.14.0，`packageManager` 固定 pnpm 10.19.0，`engines` 限定兼容范围。`pnpm run doctor` 检查本地工具与隔离，`pnpm setup:local` 默认关闭发送，`pnpm check` 汇总必要检查。Next dev 的自动 AGENTS 追加关闭，仓库维护显式 AI 接续规则。
 
@@ -24,6 +24,6 @@
 | Linux CI | [首次自动检查](https://github.com/siyu-deng/enterprise-cases/actions/runs/41767841303) success：工具配置、锁文件安装、doctor、check、build:server 全通过 |
 | 生产保护 | 只读复核：原发布 20261103065654Z，Web/timer active，90 条/2 来源，通知启用/5 分钟，seenKeys 90、无 inFlight/lastError；本轮未改服务器/未发送 |
 
-上述记录不代表已替同事安装电脑/接受私有仓库邀请、已验收后续业务需求，或执行了压力测试、Linux 发布包更新/生产部署。当前 5 分钟调度沿用既有服务器，不会因 GitHub 推送变化。
+上述记录不代表已替同事安装电脑/配置 Git 写权限、已验收后续业务需求，或执行了压力测试、Linux 发布包更新/生产部署。当前 5 分钟调度沿用既有服务器，不会因 GitHub 推送变化。
 
 详细入口：[交接手册](README.md)、[Mac 配置](macos-setup.md)、[技术结构](architecture.md)。最新远端检查见仓库 Actions。

@@ -6,7 +6,7 @@
 - **业务同事从这里开始**：[二次开发交接手册](docs/handoff/README.md)
 - **第一次配置 Mac**：[Git、Node、pnpm 与仓库配置](docs/handoff/macos-setup.md)
 - **AI 编程工具先读**：[AGENTS.md](AGENTS.md)，再读 [PROJECT_STATUS.md](PROJECT_STATUS.md)
-- **源码仓库**：[siyu-deng/enterprise-cases](https://github.com/siyu-deng/enterprise-cases)（私有，需要协作者权限）
+- **源码仓库**：[siyu-deng/enterprise-cases](https://github.com/siyu-deng/enterprise-cases)（公开，无需登录即可查看、下载或克隆）
 
 ## 本地运行
 
@@ -34,7 +34,7 @@ pnpm check
 pnpm build:server
 ```
 
-`check` 包含 Lint、类型和回归测试。修改后提交功能分支并发起 PR；GitHub Actions 只运行检查，**不会部署或发送企微消息**。发布由维护者另行执行。
+`check` 包含 Lint、类型和回归测试。本地下载、克隆与开发无需 GitHub 账号；要向仓库推送或发起 PR，仍需注册登录并取得写权限，或从自己的 fork 提交 PR。GitHub Actions 只运行检查，**不会部署或发送企微消息**。发布由维护者另行执行。
 
 ## 当前能力与数据
 
@@ -58,8 +58,9 @@ pnpm build:server
 ## 文档入口
 
 - [技术结构与扩展位置](docs/handoff/architecture.md)
+- [同事电脑的企微接入](docs/handoff/wecom-local.md)：`.env.local` 单独交付，同事自行扫码，默认不启用本地发送
 - [产品与内容规则](docs/product.md)、[设计系统](docs/design-system.md)、[界面验收](docs/acceptance.md)
 - [通知规则与异常恢复](docs/wecom-notifications.md)
 - [服务器更新与回滚](docs/deployment/self-hosted.md)、[初次部署记录](docs/deployment/production-2026-11-03.md)、[真实案例推送验证](docs/deployment/semir-case-2026-11-03.md)
 
-`docs/history`、`docs/kickoff` 和带日期的记录保留历史背景；当前结论以 `PROJECT_STATUS.md` 为准。第三方配图和来源资料保留原始权利，不因进入此私有仓库获得额外授权。
+`docs/history`、`docs/kickoff` 和带日期的记录保留历史背景；当前结论以 `PROJECT_STATUS.md` 为准。第三方配图和来源资料保留原始权利，仓库公开不代表获得额外使用授权。

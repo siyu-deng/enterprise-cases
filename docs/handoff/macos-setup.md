@@ -43,14 +43,11 @@ command -v nvm
 
 不使用 nvm 的备选：从 [Node 官方 22.14.0 下载页](https://nodejs.org/en/download/archive/v22.14.0)安装 macOS `.pkg`，随后确认 `node --version`；这会改变系统可执行文件位置，不适合已有多个 Node 项目的同事。采用此备选时跳过后文 `nvm` 命令。
 
-## 3. 配置 GitHub 访问
+## 3. 下载公开项目
 
-1. 创建/登录自己的 GitHub 账号，把**用户名**给仓库主人，由其邀请到私有仓库。
-2. 接受邀请后，确认浏览器能打开 [enterprise-cases 仓库](https://github.com/siyu-deng/enterprise-cases)。404 通常表示登录账号不对或邀请未接受。
-3. 推荐安装 [GitHub Desktop](https://desktop.github.com/download/)，登录同一账号，File → Clone repository → 选择此仓库，保存到例如 `~/Projects/enterprise-cases`。这是 Git 的图形界面，便于查看差异、提交和推送；Node/pnpm 仍在终端配置。
-4. 若已有 GitHub CLI/SSH 认证，也可用命令行克隆。HTTPS 不能用 GitHub 账号密码完成 Git 认证；使用自己的认证方式，不向他人索取 token。
+仓库已经公开，**无需 GitHub 账号、邀请或 Git 认证就能克隆并在本地开发**。可以直接解压交接包内的 `source/enterprise-cases`，或在 [仓库页面](https://github.com/siyu-deng/enterprise-cases)选择 Code → Download ZIP。
 
-命令行克隆示例（已有 Git 认证时）：
+建议有 Git 后用以下命令克隆，保留版本管理能力：
 
 ```sh
 mkdir -p ~/Projects
@@ -59,9 +56,11 @@ git clone https://github.com/siyu-deng/enterprise-cases.git
 cd enterprise-cases
 ```
 
-已经通过 Desktop 克隆就不再 clone。在 Desktop 中选择 Repository → Open in Terminal，后续所有项目命令在此执行。
+使用压缩包时，在终端 `cd` 进入解压后的源码目录，不再执行 clone。压缩包没有 `.git`，先跳过 Git 分支/提交相关命令，安装 Node/pnpm 后即可运行。
 
-为本仓库设置提交身份，替换为自己的名字和邮箱；可在 GitHub Settings → Emails 找到自己的隐私邮箱。这里不使用 `--global`，避免改动其他项目配置。
+后续需要推送/PR 时，再注册自己的 GitHub 账号，让主人邀请为协作者，或 fork 后提交 PR。可选安装 [GitHub Desktop](https://desktop.github.com/download/)，登录后图形化完成克隆、分支、提交与推送；命令行 HTTPS 推送使用自己的 Git 认证，不能用 GitHub 账号密码代替。
+
+仅对克隆得到的 Git 工作区设置提交身份，替换为自己的名字和邮箱；有 GitHub 账号时可在 Settings → Emails 找到自己的隐私邮箱。这里不使用 `--global`，避免改动其他项目配置。
 
 ```sh
 git config user.name "你的名字"
@@ -129,7 +128,7 @@ pnpm build:server
 
 | 现象 | 处理 |
 | --- | --- |
-| 仓库 404 / Repository not found | 核对账号、协作者邀请与访问权限，不将仓库改成公开解决 |
+| 仓库 404 / Repository not found | 当前为公开仓库，核对地址和网络；本地开发也可从交接压缩包解压源码 |
 | Node/pnpm 版本错误 | 进入项目后 `nvm use`；检查实际可执行路径，再按固定版本安装 |
 | `pnpm run doctor` 提示运行环境覆盖 | 检查当前终端的 `ENTERPRISE_CASES_*`；新终端不继承生产配置，勿粘贴凭据给 AI |
 | `pnpm run doctor` 提示发送未关闭 | 检查本地 `.local/wecom-notifications.json`，设 `enabled=false`；不要复制线上账本 |
@@ -139,4 +138,4 @@ pnpm build:server
 | `pnpm deploy:check` 显示 not_ready | 这是服务器 Worker 预检，本地无企微授权属预期，不是网页启动条件 |
 | `git pull --ff-only` 失败 | 保留改动与分支，让 AI 查看差异/冲突，不强推或丢弃文件 |
 
-首次交接验证以“自己电脑能预览、能建分支、能提交 PR”为准；本手册提供配置步骤，不代表已经代替同事安装或完成其账号授权。
+首次本地接入以“自己电脑能预览”为准；Git 协作阶段再验收建分支、提交 PR。本手册不代表已代替同事安装或授权其账号。

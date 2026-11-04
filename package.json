@@ -12,6 +12,8 @@
     "setup:local": "pnpm run doctor && pnpm deploy:prepare",
     "check": "pnpm lint && pnpm typecheck && pnpm test",
     "test": "node --test scripts/*.test.mjs",
+    "wecom:auth": "node --env-file=.env.local scripts/wecom-local.mjs auth",
+    "wecom:status": "node --env-file=.env.local scripts/wecom-local.mjs status",
     "dev": "next dev --hostname 127.0.0.1 --port 12091",
     "build": "next build",
     "build:server": "next build --webpack",
