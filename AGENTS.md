@@ -26,5 +26,6 @@
 - `monitor:once`、`monitor:service`、`import:reference` **可能实际发送消息**；并非预览。不能为了检查而运行它们。
 - 保留原始 URL 去重、独占锁、原 89 条基线、不确定投递 `inFlight` 人工核对机制。不得重置/回滚生产账本、猜会话标识、发送伪造新增或测试消息。
 - 凭据由服务器服务账户的 wecom-cli 管理；不要复制、提交或输出 CLI 身份/密钥、`.local`、`.env.local`、服务器私有配置和发送状态。
+- 同事本地接入使用单独 `.env.local` 与 `wecom:auth` / `wecom:status`，独立配置目录、自行扫码；本地授权不意味着获得生产群/发送权限，不启用第二套通知。
 - 服务器共享多个项目；只操作获授权的 `enterprise-cases-*` 单元/目录，不停止其他项目或升级全局 Node/pnpm。
 - GitHub 提交/合并不会自动发布；没有自动部署工作流。生产更新使用 `docs/deployment/self-hosted.md`，代码更新和业务数据导入是两个操作。
